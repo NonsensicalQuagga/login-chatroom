@@ -62,11 +62,6 @@ router.get('/user/:name', async function (req, res) {
     res.render('user.njk', req.session.user)
 })
 
-router.get('/user/:name/new', async function (req, res) {
-    res.render('create_tweep.njk', req.session.user)
-})
-
-
 router.get('/users', async function (req, res) {
     try{
     const [users] = await pool.promise().query('SELECT * FROM alvin_user')
@@ -129,11 +124,6 @@ router.get('/hashtest', async function (req, res){
 
 })
 
-router.get('/tweeps/create', async function(req, res){
-    if(req.session.name === undefined) {
-        return res.redirect('/login')
-    }
-    res.render('create_tweep.njk', req.session.user)
-})
+
 
 module.exports = router
