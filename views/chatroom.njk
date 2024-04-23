@@ -34,10 +34,16 @@
   const input = document.getElementById('input');
   const messages = document.getElementById('messages');
 
+  {% if loggedIn == true %}
+  const user = `{{ username }}`;
+  {% else %}
+  const user = "guest" + Math.floor( (Math.random() * 10000))
+  {% endif %}
+  console.log(user)
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (input.value) {
-      socket.emit('chat message', input.value);
+      socket.emit('chat message', user + ":  " + input.value);
       input.value = '';
     }
   });

@@ -77,27 +77,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.get(`/chat`, async function(req, res) {
-  res.render('chatroom.njk')
-  //res.sendFile(join(__dirname, 'index.html'));
- /* io.on('connection', (socket) => {
-      socket.join('hej')
-    socket.on('chat message', (msg) => {
-      socket.to('hej').emit('chat message', msg)
-    });
-    
-  });
-  io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-      console.log('message: ' + msg);
-    });
-    socket.on('chat message', (msg) => {
-      io.emit('chat message', msg);
-    });
-    
-  });
-  */
-})
+
 
 io.on('connection', (socket) => {
 

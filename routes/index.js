@@ -29,13 +29,8 @@ async function(req, res){
     }
     try{
         const [user] = await pool.promise().query(`SELECT * FROM alvin_user WHERE alvin_user.\`name\` = '${req.body.username}'`)
-        console.log(user)
-        console.log(user[0])
-        console.log(user[0].password)
 
-        
         bcrypt.compare(req.body.password, user[0].password, function(err, result) {
-            console.log(result)
             if (result){
                 req.session.name = req.body.username
                 res.redirect(`user/:${req.body.username}`)
@@ -57,8 +52,6 @@ router.get('/user/:name', async function (req, res) {
         loggedIn: true,
     }
     req.session.user = user
-    console.log(req.session.user)
-    console.log({username: req.session.name})
     res.render('user.njk', req.session.user)
 })
 
@@ -124,6 +117,11 @@ router.get('/hashtest', async function (req, res){
 
 })
 
+router.get(`/chat`, async function(req, res) {
+    console.log(req.session.name)
+    res.render('chatroom.njk', req.session.user)
+   
+  })
 
 
 module.exports = router
