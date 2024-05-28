@@ -1,11 +1,12 @@
 {% import "navbar.njk" as navbar %}
 {% block content %}
 <!DOCTYPE html>
+<html lang="en">
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
+    <title>pogies</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   
     <style>
@@ -24,8 +25,10 @@
   <body>
     {{navbar.setActive("chat", loggedIn, username)}}
     <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
+    <form id="form" label="chatbox" action="">
+      <label for="chatbox" hidden>chatbox</label>
+      <input id="input" autocomplete="off" aria-label="input"/><button label="send" value="send">Send</button>
+      
     </form>
     <script src="../socket.io/socket.io.js"></script>
 <script>

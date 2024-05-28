@@ -7,3 +7,10 @@ jag tror att det var ett problem med i vilken ordning sakerna stog men jag vet i
 
 Visar nu{ 'username':  'message' } när man skickar ett medelande.
 Får autogenererat guest username om man inte är inloggad.
+
+# 27/05 - 24
+
+Infogade en bild i index. Jens sa åt mig att jag behövde en bild. Tog en från min mobil som var 3 MB sedan komprimerade jag den till 133 KB.
+
+# 28/05 - 24
+WAVE saker.
